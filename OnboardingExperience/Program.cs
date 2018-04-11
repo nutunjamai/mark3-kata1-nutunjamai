@@ -6,9 +6,10 @@ namespace OnboardingExperience
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
-            Console.ReadLine();
+            Console.WriteLine("Welcome to Amar Taka, enter your information to setup a new account");
+            Console.WriteLine("\nEnter your first name");
+            Console.ReadKey(true);
+            
         }
     }
 }
