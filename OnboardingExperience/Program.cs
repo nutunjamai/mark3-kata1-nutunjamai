@@ -9,7 +9,9 @@ namespace OnboardingExperience
             Console.WriteLine("Welcome to Amar Taka, enter your information to setup a new account");
             Console.WriteLine("\nEnter your first name");
             Console.ReadKey(true);
-            
+
+            Console.WriteLine("/nEnter Last Name");
+
         }
     }
 }
