@@ -39,16 +39,25 @@ namespace OnboardingExperience
         }
 
         public static bool Accbool(string question)
-        {
-            do
-            {
-                var result = AskQuestion(question + " (y/n)");
+        {		// ^^^ change this name
+            while (true)
+                {
+                    var result = AskQuestion(question + " (y/n)");
 
-                if (result.ToLower() == "y") { return true; }
-                else if (result.ToLower() == "n") { return false; }
+                    if (result.ToLower() == "y")
 
-                Console.WriteLine("\nYou must enter y or n");
-            } while (true);
+                    {
+                        Console.WriteLine("you already have an account");
+                        Console.WriteLine("\n the app will now close");
+
+                        Environment.Exit(-1);//this closes the app
+
+                    }
+                    else if (result.ToLower() == "n") { return false; }
+
+                    Console.WriteLine("\nYou must enter y or n");
+
+                }
         }
 
 
