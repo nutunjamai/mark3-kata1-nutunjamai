@@ -8,14 +8,12 @@ namespace OnboardingExperience
         {
             var user = new User();
 
-            user.AccountOwner = Accbool("Are you an account owner?");
+            user.AccountOwner = AskBoolQuestion("Are you an account owner?");
 
             Console.WriteLine("Welcome to Amar Taka, enter your information to setup a new account");
 
-
             user.FirstName = AskQuestion("\nEnter your First Name");
             Console.WriteLine($"\nHi {user.FirstName},");
-
 
             user.LastName = AskQuestion("What is your last name");
             Console.WriteLine($"\nOk {user.FirstName} {user.LastName}");
@@ -24,7 +22,6 @@ namespace OnboardingExperience
 
             Console.WriteLine($"{user.PinNumber} Great save your pin and don't share it with anybody");
             Console.ReadKey(true);
-
         }
 
         public static int IntQuestion(string questionInt)
@@ -38,35 +35,29 @@ namespace OnboardingExperience
             return num;
         }
 
-        public static bool Accbool(string question)
-        {		// ^^^ change this name
+        public static bool AskBoolQuestion(string question)
+        {		
             while (true)
                 {
                     var result = AskQuestion(question + " (y/n)");
 
                     if (result.ToLower() == "y")
-
                     {
                         Console.WriteLine("you already have an account");
                         Console.WriteLine("\n the app will now close");
 
                         Environment.Exit(-1);//this closes the app
-
                     }
                     else if (result.ToLower() == "n") { return false; }
 
                     Console.WriteLine("\nYou must enter y or n");
-
                 }
         }
-
 
         static string AskQuestion(string question)
         {
             Console.WriteLine(question);
             return Console.ReadLine();
-
-
         }
     }
 }
