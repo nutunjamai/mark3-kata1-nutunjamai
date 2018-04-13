@@ -8,7 +8,14 @@ namespace OnboardingExperience
         {
             var user = new User();
 
-            user.AccountOwner = AskBoolQuestion("Are you an account owner?");
+            user.IsAccountOwner = AskBoolQuestion("Are you an account owner?");
+
+            if (user.IsAccountOwner)
+            {
+                Console.WriteLine("you already have an account");
+                Console.WriteLine("\n the app will now close");
+                return;
+            }
 
             Console.WriteLine("Welcome to Amar Taka, enter your information to setup a new account");
 
@@ -28,7 +35,9 @@ namespace OnboardingExperience
         {
             Console.WriteLine(questionInt);
             int num;
-            while (int.TryParse(Console.ReadLine(), out num) == false)
+
+            // Execute while not a number
+            while (!int.TryParse(Console.ReadLine(), out num))
             {
                 Console.WriteLine("**ERROR** Invalid input enter valid number");
             }
@@ -41,13 +50,7 @@ namespace OnboardingExperience
             {
                 var result = AskQuestion(question + " (y/n)");
 
-                if (result.ToLower() == "y")
-                {
-                    Console.WriteLine("you already have an account");
-                    Console.WriteLine("\n the app will now close");
-
-                    Environment.Exit(-1);//this closes the app
-                }
+                if (result.ToLower() == "y") { return true; }
                 else if (result.ToLower() == "n") { return false; }
 
                 Console.WriteLine("\nYou must enter y or n");
