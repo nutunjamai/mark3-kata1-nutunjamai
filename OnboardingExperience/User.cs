@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-
-namespace OnboardingExperience
+﻿namespace OnboardingExperience
 {
     class User
     {
